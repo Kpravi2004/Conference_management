@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const fullName = document.getElementById("fullName");
         const email = document.getElementById("email");
+        const mobile = document.getElementById("mobile");
         const password = document.getElementById("password");
         const confirmPassword = document.getElementById("confirmPassword");
 
@@ -25,6 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
             isValid = false;
         } else {
             clearError(email);
+        }
+
+        // Mobile Number Validation
+        if (!validateMobile(mobile.value)) {
+            showError(mobile, "Enter a valid 10-digit mobile number.");
+            isValid = false;
+        } else {
+            clearError(mobile);
         }
 
         // Password Validation
@@ -66,5 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function validateEmail(email) {
         const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return re.test(email);
+    }
+
+    function validateMobile(mobile) {
+        const re = /^[6-9]\d{9}$/; // Indian mobile number format
+        return re.test(mobile);
     }
 });
