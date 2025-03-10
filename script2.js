@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     registerForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const fullName = document.getElementById("fullName");
+        const fullName = document.getElementById("userName");
         const email = document.getElementById("email");
         const mobile = document.getElementById("mobile");
         const password = document.getElementById("password");
@@ -13,11 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let isValid = true;
 
         // Full Name Validation
-        if (fullName.value.trim().length < 3) {
-            showError(fullName, "Full Name must be at least 3 characters.");
+        if (userName.value.trim().length < 4) {
+            showError(userName, "user Name must be at least 4 characters.");
             isValid = false;
         } else {
-            clearError(fullName);
+            clearError(userName);
         }
 
         // Email Validation
